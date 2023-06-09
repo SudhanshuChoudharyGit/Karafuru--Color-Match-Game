@@ -3,14 +3,14 @@ import 'firebase/compat/database';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAKjZtFzAUsx9ItTMXwZBn1znSiNvIOAd8",
+    apiKey: "apikey",
     authDomain: "colormatch-34602.firebaseapp.com",
-    databaseURL: "https://colormatch-34602-default-rtdb.firebaseio.com",
-    projectId: "colormatch-34602",
-    storageBucket: "colormatch-34602.appspot.com",
-    messagingSenderId: "416479585803",
-    appId: "1:416479585803:web:acf4ba21f0f9bb3896890e",
-    measurementId: "G-NP2LSGLKW8"
+    databaseURL: "database-url",
+    projectId: "project-id",
+    storageBucket: "storage-bucket",
+    messagingSenderId: "id",
+    appId: "id",
+    measurementId: "id"
   };
 
 firebase.initializeApp(firebaseConfig);
