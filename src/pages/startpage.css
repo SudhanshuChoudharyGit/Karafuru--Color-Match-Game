@@ -1,0 +1,253 @@
+@font-face {
+  font-family: DisposableDroid BB;
+  src: url(./DisposableDroidBB.ttf);
+}
+
+.start-page {
+    background: url('./startbackground.png') no-repeat center fixed;
+    background-position: center center;  
+    animation: animatedBackgroundavatar 1s infinite steps(2);    
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes animatedBackgroundavatar {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 15%;
+    }
+  } 
+
+
+
+  .game-title {
+    position: relative;
+    font-size: 12vh;
+    text-align: center;
+    color: #465AC0;
+    margin-bottom: 0.1vh;
+    text-shadow: -0.15vw 0 0 #FF5555,
+    -0.3vw 0 0 #FFE459,
+    0.15vw 0 0 #466AEA,
+    0.3vw 0 0 #3CE46B;
+  animation: blink 1s steps(4, start) infinite
+  }
+
+  .game-sub-title {
+    position: relative;
+    font-size: 4.5vh;
+    text-align: center;
+    color: #000000;
+    margin-top: 0.5vh;
+    text-shadow: -0.15vw 0 0 #FF5555,
+    -0.25vw 0 0 #FFE459,
+    0.15vw 0 0 #466AEA,
+    0.25vw 0 0 #3CE46B;
+  animation: blink 1s steps(4, start) infinite
+  }
+
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
+  
+  
+  
+  .instructions {
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 8vh;
+    left: 3vw;
+    padding: 1vw;
+    color: rgb(255, 251, 251);
+    background-color: #466aea82;
+    border-radius: 1vw;
+    width: 18vw;
+    height: 25vh;
+  }
+
+  .instructions h2 {
+    font-size: 3vh;
+    margin-left: 1.5vw;
+  }
+  
+  .instructions li{
+    font-size: 2vh;
+  }
+
+
+  .insimages {
+    padding-top: 1.5vh;
+    padding-left: 1.25vw;
+    margin-bottom: 2vh;
+    width: 14vw;
+    filter: brightness(100);
+  }
+
+  .start-square-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: rotate(30deg); 
+  }
+  
+  .start-square {
+    width: 7vw;
+    height: 7vw;
+    border: none;
+    border-radius: 1.1vw;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    position: relative;
+    margin: 1vh;
+    background-color: #8b2e2e;
+    text-align: center;
+    }
+    .start-square-front {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DisposableDroid BB';
+    width: 7vw;
+    height: 7vw;
+    border: none;
+    font-size: 2vw;
+    border-radius: 1.1vw;
+    text-align: center;
+    background-color: #FF5555;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-0.6vw) translateX(-0.6vw) ;
+    }
+    .start-square:active .start-square-front {
+    transform: translateY(-0.2vw) translateX(-0.2vw);
+    }
+
+
+
+/* Adjust layout for smaller screens */
+@media screen and (max-width: 821px){
+
+  .start-page {
+    background: url('./mobilebackgroundstart1.png') no-repeat center ;
+    background-position: center center;  
+    animation: animatedBackgroundavatar 1s infinite steps(2);    
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes animatedBackgroundavatar {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 7%;
+    }
+  } 
+
+
+
+
+
+.game-title {
+  position: relative;
+  font-size: 7vh;
+  text-align: center;
+  color: #465AC0;
+  margin-bottom: 0.2vh;
+  text-shadow: -0.15vh 0 0 #FF5555,
+  -0.3vh 0 0 #FFE459,
+  0.15vh 0 0 #466AEA,
+  0.3vh 0 0 #3CE46B;
+animation: blink 1s steps(4, start) infinite
+}
+
+.game-sub-title {
+  position: relative;
+  font-size: 4vh;
+  text-align: center;
+  color: #000000;
+  margin-top: 0.3vh;
+  margin-bottom: 0.1vh;
+  text-shadow: -0.15vh 0 0 #FF5555,
+  -0.25vh 0 0 #FFE459,
+  0.15vh 0 0 #466AEA,
+  0.25vh 0 0 #3CE46B;
+animation: blink 1s steps(4, start) infinite
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+
+
+.instructions {
+  visibility:hidden;
+}
+
+
+.start-square-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transform: rotate(30deg); 
+  margin-top: 4vh;
+  margin-bottom: 19vh;
+}
+
+.start-square {
+  width: 10vh;
+  height: 10vh;
+  border: none;
+  border-radius: 1.3vh;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  position: relative;
+  margin: 1vh;
+  background-color: #8b2e2e;
+  text-align: center;
+  }
+  .start-square-front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 10vh;
+  height: 10vh;
+  border: none;
+  font-size: 3vh;
+  border-radius: 1.3vh;
+  text-align: center;
+  background-color: #FF5555;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-0.8vh) translateX(-0.8vh) ;
+  }
+  .start-square:active .start-square-front {
+  transform: translateY(-0.3vh) translateX(-0.3vh);
+  }
+}

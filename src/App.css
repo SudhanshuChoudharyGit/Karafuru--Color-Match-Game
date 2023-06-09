@@ -1,3 +1,8 @@
+@font-face {
+  font-family: DisposableDroid BB;
+  src: url(./fonts/DisposableDroidBB.ttf);
+}
+
 .App {
   text-align: center;
 }

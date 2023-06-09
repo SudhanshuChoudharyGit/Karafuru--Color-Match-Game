@@ -1,0 +1,966 @@
+
+@font-face {
+  font-family: DisposableDroid BB;
+  src: url(./fonts/DisposableDroidBB.ttf);
+}
+
+
+
+/* avatar selection screen */
+
+
+.-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width:auto;
+  height: 10vh;
+  margin: 3.5vh;
+  border: solid 0.85vh transparent;
+  transition: filter 0.2s ease-in-out;
+}
+
+.avatar.selected {
+  filter:none;
+  border: solid 0.85vh;
+  border-color: #3CE46B;
+  animation: wiggle 1s infinite steps(2);
+}
+
+.avatar:hover {
+  filter:  brightness(100%);
+  border-color: #3CE46B;
+}
+
+.avatar-selection {
+  font-family: 'DisposableDroid BB';
+  font-style: normal;
+  color:#464646;
+  text-align: center;
+}
+
+
+@keyframes wiggle {
+  0% { transform: translateY(3px); }
+  50% { transform: translateY(-3px); }
+ 100% { transform: translateY(3px); }
+}
+
+.avatar-selection h2 {
+  font-size: 3vw;
+  margin-bottom: 1.5vw;
+  /* animation: wiggle 1s infinite steps(2); */
+  animation: blink 1s steps(4, start) infinite
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.avatar-selection input {
+  font-size: 2vh;
+  padding: 0.5vw;
+  margin-bottom: 2vw;
+}
+
+
+input[type="text"] {
+  background-color: #ffffff;
+   color: #464646;
+   border: 0.25vw solid #B2CFF1;
+   border-radius: 0.8vw;
+   font-family: 'DisposableDroid BB';
+   font-size: 1.6vw;
+   padding: 0.6vw;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 0.1vw;
+   outline: none;
+ }
+ 
+ ::placeholder {
+   color: #464646;
+   opacity: 0.5;
+ }
+
+ .pushable {
+  position: relative;
+  background: #8a2e2e;
+  width: 7vw;
+  height: 3.5vw;
+  border: none;
+  border-radius: 0.7vw;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 7vw;
+  height: 3.5vw;
+  font-size: 1.8vw;
+  border-radius: 0.7vw;
+  background: #FF5555;
+  color: white;
+  transform: translateY(-0.7vh);
+}
+
+.pushable:active .front {
+  transform: translateY(-0.2vh);
+}
+
+
+
+
+
+
+ /* Game Play screen */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #B2CFF1;
+  background: url('./avatarselectbackground.png');  
+  animation: animatedBackgroundavatar 1s infinite steps(2);    
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: repeat-x repeat-y;
+
+  top: 0;
+  left: 0; 
+  width: 100vw;
+  height: 100vh;
+
+  position:relative;
+  overflow: auto;
+}
+
+@keyframes animatedBackgroundavatar {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 15%;
+  }
+} 
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.score-container h2 {
+  font-size: 6vh;
+  margin-bottom: 0.5vh;
+}
+
+.score-container p {
+  font-size: 4vh;
+  margin-bottom: 0;
+}
+
+
+
+
+.target-color {
+  width: 8.5vw;
+  height: 8.5vw;
+  margin-bottom: 4vh;
+  border: 1vh solid;
+  border-radius: 2vh;
+}
+
+.target-color.animate {
+  animation: color-change 0.5s ease;
+}
+
+@keyframes color-change {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+
+.square-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.square {
+  width: 7.5vw;
+  height: 7.5vw;
+  border: none;
+  border-radius: 1.5vh;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  position: relative;
+  margin: 0.9vw;
+  }
+  .square-front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 7.5vw;
+  height: 7.5vw;
+  font-size: 1.5rem;
+  border-radius: 1.5vh;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-0.8vh);
+  }
+  .square:active .square-front {
+  transform: translateY(-0.2vh);
+  }
+
+
+.square.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-0.5vw);
+  }
+  50% {
+    transform: translateX(0.5vw);
+  }
+  75% {
+    transform: translateX(-0.5vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+.player-info {
+  position: fixed;
+  top: 10vh;
+  left: 5vw;
+}
+
+.player-avatar {
+  width: auto;
+  height: 8vh;
+  margin-right: 1vw;
+}
+
+.player-name {
+  position: absolute;
+  font-size: 4.3vh;
+  padding-top: 2.5vh;
+  padding-left: 0.6vw;
+  text-transform: capitalize;
+}
+
+
+/* Game over scren */
+
+.game-over-screen {
+  background-image: url('./gameoverscreen.png');
+  background-position: 0px 0px;
+  background-repeat: repeat-x repeat-y;
+  background-color: #E9F3FF;
+  background-size: cover;
+
+  animation: animatedBackground 1s infinite steps(2); 
+
+  top: 0;
+  left: 0; 
+  width: 100vw;
+  height: 100vh;
+
+  position:fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 50%;
+  }
+} 
+
+
+
+
+
+
+/* Game over scren - Leaderboard */
+
+
+
+
+.highlighted {
+  outline: solid 2px #464646 ;
+  outline-offset: 4px;
+  border-radius: 6px;
+  
+}
+
+
+
+.leaderboard {
+  position: absolute;
+  top: 8vh;
+  
+  right: 4vw;
+  
+  width: 25vw;
+  height: 87%;
+  background: transparent;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  border: 0.1vw solid #000000;
+  border-radius: 1.8vw;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.leaderboard h1 {
+  position: relative;
+  font-size: 5vh;
+  margin-bottom: 2vh;
+}
+
+.leaderboard ul {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.2vh;
+}
+
+.leaderboard li img {
+  position: relative;
+  width: auto;
+  height: 5vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
+}
+
+.leaderboard li span {
+  position: relative;
+  font-size: 3vh;
+  margin-right: 1vw;
+}
+
+.numbering {
+  margin-left: 0;
+  margin-right: auto;
+  font-size: 3vh;
+  color: #6e6060;
+}
+
+.score-leaderboard {
+  margin-left: auto;
+  margin-right: 0;
+  font-size: 3vh;
+}
+
+
+
+/* Game over scren - game over popup */
+
+
+.game-over {
+  position:relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f8c35a;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 1vw;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.148);
+}
+
+.game-over h2 {
+  font-size: 6vh;
+  margin-bottom: 2vh;
+  color: #AC7D1F;
+  animation: blink 1s steps(4, start) infinite
+}
+
+.game-over h3 {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: #513A0C;
+}
+
+
+.go-square-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.go-square {
+  width: 6.3vw;
+  height: 6.3vw;
+  border: none;
+  border-radius: 1vw;
+  padding: 0;
+  cursor: pointer;
+  background: #8a2e2e;
+  outline-offset: 4px;
+  position: relative;
+  margin: 2vw;
+  }
+  .go-square-front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 6.3vw;
+  height: 6.3vw;
+  font-size: 2.65vh;
+  border-radius: 1vw;
+  color: white;
+  position: relative;
+  background: #FF5555;
+  top: 0;
+  left: 0;
+  transform: translateY(-0.7vh) translateX(-0.4vw);
+  }
+  .go-square:active .go-square-front {
+    transform: translateY(-2px) translateX(-2px);
+  }
+
+
+/* Adjust layout for smaller screens */
+/* --------------------------------------------------------*/
+@media screen and (max-width: 821px) {
+
+
+/* game over screen */
+
+.game-over-screen {
+  background: url('./mobileavatarselectionbg1.png') no-repeat center ;
+  background-position: center center;  
+  animation: animatedBackgroundavatar 1s infinite steps(2);    
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes animatedBackgroundavatar {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 50%;
+  }
+} 
+
+
+
+
+
+.game-over {
+  position:relative;
+  margin: 3vh;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f8c35a;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+
+  border-radius: 2vw;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.148);
+}
+
+.game-over h2 {
+  font-size: 4vh;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  color: #AC7D1F;
+  animation: blink 1s steps(4, start) infinite;
+}
+
+.game-over h3 {
+  font-size: 2.5vh;
+  margin-bottom: 1.5vh;
+  margin-top: 1.5vh;
+  color: #513A0C;
+}
+
+
+.go-square-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.go-square {
+  width: 8vh;
+  height: 8vh;
+  border: none;
+  border-radius: 1vh;
+  padding: 0;
+  cursor: pointer;
+  background: #8a2e2e;
+  outline-offset: 4px;
+  position: relative;
+  margin: 1.1vh;
+  }
+  .go-square-front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 8vh;
+  height: 8vh;
+  font-size: 2.2vh;
+  border-radius: 1vh;
+  color: white;
+  position: relative;
+  background: #FF5555;
+  top: 0;
+  left: 0;
+  transform: translateY(-0.7vh) translateX(-0.7vh);
+  }
+  .go-square:active .go-square-front {
+    transform: translateY(-0.4vh) translateX(-0.4vh);
+  }
+
+
+  .highlighted {
+    outline: solid 2px #464646 ;
+    outline-offset: 4px;
+    border-radius: 6px;
+    
+  }
+  
+  
+  
+  .leaderboard {
+    position: relative;
+    top: 3vh;
+    margin-left: 4.15vh;
+    width: 30vh;
+    height: 40vh;
+    background: transparent;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    padding-top: 0.1vh;
+    padding-bottom: 1vh;
+    border: 0.4vw solid #000000;
+    border-radius: 1.8vw;
+    margin-bottom: 12vh;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.148);
+
+  }
+  
+  .leaderboard h1 {
+    position: relative;
+    font-size: 4vh;
+    margin-top: 0.9vh;
+    margin-bottom: 3vh;
+  }
+  
+  .leaderboard ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .leaderboard li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2vh;
+  }
+  
+  .leaderboard li img {
+    position: relative;
+    width: auto;
+    height: 3.5vh;
+    margin-right: 3vh;
+    margin-left: 2vw;
+  }
+  
+  .leaderboard li span {
+    position: relative;
+    font-size: 3vh;
+  }
+
+  .numbering {
+    margin-left: 0;
+    margin-right: auto;
+    font-size: 3vh;
+    color: #6e6060;
+  }
+
+  .score-leaderboard {
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 3vh;
+  }
+
+
+  /* avatar selection screen */
+
+  
+  .avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 6vh;
+  } 
+
+
+.avatar {
+  height: 7vh;
+  margin: 1.7vh;
+  border: solid 0.6vh transparent;
+}
+
+.avatar.selected {
+  border: solid 0.6vh;
+}
+
+.avatar:hover {
+  filter:  brightness(100%);
+  border-color: #3CE46B;
+}
+
+.avatar-selection {
+  font-family: 'DisposableDroid BB';
+  font-style: normal;
+  color:#464646;
+  text-align: center;
+  background: url('./mobileavatarselectionbg1.png') no-repeat center ;
+  background-position: center center;  
+  animation: animatedBackgroundavatar 1s infinite steps(2);    
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes animatedBackgroundavatar {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 7%;
+  }
+} 
+
+@keyframes wiggle {
+  0% { transform: translateY(3px); }
+  50% { transform: translateY(-3px); }
+ 100% { transform: translateY(3px); }
+}
+
+.avatar-selection h2 {
+  font-size: 4.7vh;
+  margin-bottom: 5vh;
+  /* animation: wiggle 1s infinite steps(2); */
+  animation: blink 1s steps(4, start) infinite
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.avatar-selection input {
+  font-size: 2vh;
+  padding: 0.5vw;
+  margin-bottom: 2vw;
+}
+
+
+input[type="text"] {
+  background-color: #ffffff;
+   color: #464646;
+   border: 0.25vh solid #B2CFF1;
+   border-radius: 0.8vh;
+   font-family: 'DisposableDroid BB';
+   font-size: 2.8vh;
+   padding: 0.6vh;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 0.3vw;
+   margin-bottom: 3vh;
+   outline: none;
+ }
+ 
+ ::placeholder {
+   color: #464646;
+   opacity: 0.5;
+ }
+
+ .pushable {
+  position: relative;
+  background: #8a2e2e;
+  width: 9vh;
+  height: 4.3vh;
+  border: none;
+  border-radius: 0.7vh;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  margin-bottom: 15vh;
+}
+.front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 9vh;
+  height: 4.3vh;
+  font-size: 3vh;
+  border-radius: 0.7vh;
+  background: #FF5555;
+  color: white;
+  transform: translateY(-0.7vh);
+}
+
+.pushable:active .front {
+  transform: translateY(-0.2vh);
+}
+
+
+/* Game Play screen */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #B2CFF1;
+  background: url('./mobilegameplaybg1.png');  
+  animation: animatedBackgroundavatar 1s infinite steps(2);    
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: repeat-x repeat-y;
+
+  top: 0;
+  left: 0; 
+  width: 100vw;
+  height: 100vh;
+
+  position:relative;
+  overflow: auto;
+}
+
+@keyframes animatedBackgroundavatar {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 15%;
+  }
+} 
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1vh;
+  margin-top: 3vh;
+}
+
+.score-container h2 {
+  font-size: 4vh;
+  margin-bottom: 0vh;
+}
+
+.score-container p {
+  font-size: 4vh;
+  margin-bottom: 0vh;
+}
+
+
+
+
+.target-color {
+  width: 12vh;
+  height: 12vh;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  border: 1vh solid;
+  border-radius: 2vh;
+
+}
+
+.target-color.animate {
+  animation: color-change 0.5s ease;
+}
+
+@keyframes color-change {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+
+.square-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.square {
+  width: 8.5vh;
+  height: 8.5vh;
+  border: none;
+  border-radius: 1.5vh;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  position: relative;
+  margin: 0.9vh;
+  }
+  .square-front {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DisposableDroid BB';
+  width: 8.5vh;
+  height: 8.5vh;
+  font-size: 1.5rem;
+  border-radius: 1.5vh;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-0.8vh);
+  }
+  .square:active .square-front {
+  transform: translateY(-0.2vh);
+  }
+
+
+.square.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-0.5vw);
+  }
+  50% {
+    transform: translateX(0.5vw);
+  }
+  75% {
+    transform: translateX(-0.5vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+.player-info {
+  position: fixed;
+  top: 4vh;
+  left: 1.8vh;
+}
+
+.player-avatar {
+  border-bottom: 1vh solid #3CE46B;
+  width: auto;
+  height: 8vh;
+  margin-right: 2vh;
+}
+
+.player-name {
+  position: absolute;
+  font-size: 4.3vh;
+  padding-top: 2.5vh;
+  padding-left: 0.6vw;
+  text-transform: capitalize;
+}
+
+  
+}
