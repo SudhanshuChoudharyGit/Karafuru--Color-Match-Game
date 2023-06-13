@@ -1,14 +1,12 @@
 import React from 'react';
 import './startpage.css';
 import insimage from './insimage.png';
-import fallingblocks from './fallingblocks.png';
 
 const StartPage = ({ handleStartGame }) => {
   return (
     <div className="start-page">
       <h1 className="game-title">Karafuru</h1>
       <h2 className="game-sub-title">color matching game</h2>
-      {/* <img src={fallingblocks} className="falling-blocks"/> */}
       <div className="instructions">
         <h2>How to Play</h2>
         
