@@ -88,14 +88,7 @@ const App = () => {
   const [shouldShake, setShouldShake] = useState(false);
   const [showStartPage, setShowStartPage] = useState(true); //start page
   const [showAvatarPage, setshowAvatarPage] = useState(false); //avatar page
- // const firstSquareRef = useRef(null); //keyboard comp
 
-
-//   useEffect(() => {
-//     if (firstSquareRef.current) {
-//       firstSquareRef.current.focus();
-//     }
-//   }, []);
   
 
   //shake effect decider
